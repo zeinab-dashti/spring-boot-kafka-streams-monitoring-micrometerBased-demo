@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: streams-micrometer-based-monitoring-demo
+  kafka:
+    streams:
+      application-id: streams-micrometer-based-monitoring-demo
+      bootstrap-servers: kafka:9092
+      properties:
+        default.key.serde: 'org.apache.kafka.common.serialization.Serdes$StringSerde'
+        default.value.serde: 'org.apache.kafka.common.serialization.Serdes$StringSerde'
+
+management:
+  server:
+    port: 9404
+    address: 0.0.0.0
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    prometheus:
+      enabled: true
